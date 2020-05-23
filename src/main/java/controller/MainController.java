@@ -8,6 +8,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import main.Main;
 
+import java.io.IOException;
+
 public class MainController {
 
     @FXML
@@ -27,9 +29,16 @@ public class MainController {
         stage.show();
     }
 
-    public void user_select(ActionEvent actionEvent) {
+    public void user_select(ActionEvent actionEvent) throws IOException {
 
         Stage stage0 = (Stage) userButton.getScene().getWindow();
         stage0.close();
+
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(Main.class.getResource("/Fxml/user.fxml"));
+        stage.setTitle("Banki Alkalmazás");
+        stage.setResizable(false);
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 }

@@ -14,6 +14,7 @@ public class User {
     @Setter(AccessLevel.NONE)
     private LocalDate Birth;
     private String Password;
+    private String Email;
     private String AccountNumber;
 
     public User(int birthYear, int birthMonth, int birthDay){
