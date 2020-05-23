@@ -1,4 +1,5 @@
+controller\WorkerController.class
 modell\Worker.class
 modell\Account.class
-controller\UserController.class
 main\BankApplication.class
+controller\MainController.class
