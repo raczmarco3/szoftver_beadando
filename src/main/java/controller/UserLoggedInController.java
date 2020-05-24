@@ -7,10 +7,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import lombok.extern.slf4j.Slf4j;
 import modell.User;
 
 import java.io.IOException;
-
+@Slf4j
 public class UserLoggedInController {
     private User user = new User();
     public void setLoggedin(User user){
@@ -20,6 +21,7 @@ public class UserLoggedInController {
     @FXML
     private javafx.scene.control.Button penzBefizetesButton;
     public void penzbefizetes(ActionEvent actionEvent) throws IOException {
+        log.info("Pénzbefizetés kiválasztva!");
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Fxml/befizetes.fxml"));
         Parent root = fxmlLoader.load();
         fxmlLoader.<BefizetesController>getController().initUser(user);
@@ -29,6 +31,7 @@ public class UserLoggedInController {
     }
 
     public void penzkivetel(ActionEvent actionEvent) throws IOException {
+        log.info("Pénzkiveétel kiválasztva!");
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Fxml/kivetel.fxml"));
         Parent root = fxmlLoader.load();
         fxmlLoader.<KivetelController>getController().initUser(user);
@@ -38,6 +41,7 @@ public class UserLoggedInController {
     }
 
     public void egyenleg(ActionEvent actionEvent) throws IOException {
+        log.info("Egyenlekérdezés kiválasztva!");
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Fxml/egyenleg.fxml"));
         Parent root = fxmlLoader.load();
         fxmlLoader.<BalanceController>getController().initUser(user);
@@ -47,6 +51,7 @@ public class UserLoggedInController {
     }
 
     public void atutalas(ActionEvent actionEvent) throws IOException {
+        log.info("Átutalás kiválasztva!");
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Fxml/atutalas.fxml"));
         Parent root = fxmlLoader.load();
         fxmlLoader.<AtutalasController>getController().initUser(user);
@@ -56,6 +61,7 @@ public class UserLoggedInController {
     }
 
     public void uzenetek(ActionEvent actionEvent) throws IOException {
+        log.info("Üzenetek kiválasztva!");
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Fxml/usermsgs.fxml"));
         Parent root = fxmlLoader.load();
         fxmlLoader.<UserMessageController>getController().initUser(user);

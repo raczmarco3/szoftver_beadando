@@ -10,6 +10,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import jaxb.JAXBHelper;
+import lombok.extern.slf4j.Slf4j;
 import main.Main;
 import modell.User;
 import modell.Users;
@@ -24,11 +25,12 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
-
+@Slf4j
 public class WorkerController {
 
     @FXML private javafx.scene.control.Button closeButton;
     public void back_to_main(ActionEvent actionEvent) throws IOException {
+        log.info("Vissza a menübe!");
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
         Stage primaryStage = new Stage();
@@ -45,6 +47,7 @@ public class WorkerController {
     private TextField jelszoField;
     public void bejelentkezes(ActionEvent actionEvent) throws IOException, JAXBException {
         if(emailField.getText().isEmpty() || jelszoField.getText().isEmpty()){
+            log.error("A dolgozo bejelentkezési adatai üresek!");
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Hiba");
             alert.setHeaderText(null);
@@ -68,7 +71,7 @@ public class WorkerController {
                         */
                     WorkerLoggedInController InitData = new WorkerLoggedInController();
                     InitData.setLoggedin(worker);
-
+                    log.info("Dolgozol bejelentkezes sikeres!");
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Fxml/workerloggedin.fxml"));
                     Parent root = fxmlLoader.load();
                     Stage stage2 = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();

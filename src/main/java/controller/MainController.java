@@ -6,10 +6,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import lombok.extern.slf4j.Slf4j;
 import main.Main;
 
 import java.io.IOException;
 
+@Slf4j
 public class MainController {
 
     @FXML
@@ -20,7 +22,7 @@ public class MainController {
 
         Stage stage0 = (Stage) workerButton.getScene().getWindow();
         stage0.close();
-
+        log.info("Dolgozó kiválasztva!");
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(Main.class.getResource("/Fxml/worker.fxml"));
         stage.setTitle("Banki Alkalmazás");
@@ -33,7 +35,7 @@ public class MainController {
 
         Stage stage0 = (Stage) userButton.getScene().getWindow();
         stage0.close();
-
+        log.info("user kiválasztva!");
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(Main.class.getResource("/Fxml/user.fxml"));
         stage.setTitle("Banki Alkalmazás");

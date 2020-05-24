@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import lombok.extern.slf4j.Slf4j;
 import modell.Account;
 import modell.Accounts;
 import modell.User;
@@ -21,6 +22,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+@Slf4j
 public class AtutalasController {
     private User user = new User();
     public void initUser(User user){
@@ -28,6 +30,7 @@ public class AtutalasController {
     }
 
     public void megse(ActionEvent actionEvent) throws IOException {
+        log.info("Visszalépés a főoldalra!");
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Fxml/userloggedin.fxml"));
         Parent root = fxmlLoader.load();
         fxmlLoader.<UserLoggedInController>getController().setLoggedin(user);
@@ -48,7 +51,7 @@ public class AtutalasController {
             alert.showAndWait();
         }else{
             atutalas_(user.getAccountNumber(),szamlaszamInput.getText(), Integer.parseInt(osszegInput.getText()));
-
+            log.info("Átutalás történt!");
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Fxml/userloggedin.fxml"));
             Parent root = fxmlLoader.load();
             fxmlLoader.<UserLoggedInController>getController().setLoggedin(user);

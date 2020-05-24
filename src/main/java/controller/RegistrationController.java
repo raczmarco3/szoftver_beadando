@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import lombok.extern.slf4j.Slf4j;
 import main.Main;
 import modell.Account;
 import modell.Accounts;
@@ -23,11 +24,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
-
+@Slf4j
 public class RegistrationController {
     @FXML
     private javafx.scene.control.Button closeButton;
     public void back_to_main(ActionEvent actionEvent) throws IOException {
+        log.info("Vissza a menübe!");
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
         Stage primaryStage = new Stage();
@@ -58,6 +60,7 @@ public class RegistrationController {
                 firstNameField.getText().isEmpty() || lastNameField.getText().isEmpty() ||
                 birthDayField.getText().isEmpty() || emailField.getText().isEmpty() ||
                 passwordField.getText().isEmpty()){
+            log.error("A regisztrációs adatok üresek!");
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Hiba");
             alert.setHeaderText(null);
@@ -65,6 +68,7 @@ public class RegistrationController {
             alert.showAndWait();
         }else if(!birthDateField.getText().isEmpty() && (Integer.parseInt(birthDateField.getText())<1900 || Integer.parseInt(birthDateField.getText())>2020)){
                  Alert alert = new Alert(Alert.AlertType.ERROR);
+            log.error("Hibás évszám");
                 alert.setTitle("Hiba");
                 alert.setHeaderText(null);
                 alert.setContentText("A születési év nem lehet kisebb,mint 1900 és nem lehet nagyobb,mint 2020");
@@ -72,6 +76,7 @@ public class RegistrationController {
 
         }else if(!birthMonthField.getText().isEmpty() && (Integer.parseInt(birthMonthField.getText())<1 || Integer.parseInt(birthMonthField.getText())>12)){
             Alert alert = new Alert(Alert.AlertType.ERROR);
+            log.error("hibás hónap");
             alert.setTitle("Hiba");
             alert.setHeaderText(null);
             alert.setContentText("A hónap csak 1 és 12 közötti szám lehet!");
@@ -79,6 +84,7 @@ public class RegistrationController {
 
         }else if(!birthDayField.getText().isEmpty() && (Integer.parseInt(birthDayField.getText())<1 || Integer.parseInt(birthDayField.getText())>31)){
             Alert alert = new Alert(Alert.AlertType.ERROR);
+            log.error("Hibás nap");
             alert.setTitle("Hiba");
             alert.setHeaderText(null);
             alert.setContentText("A nap csak 1 és 31 közötti szám lehet!");
@@ -92,7 +98,7 @@ public class RegistrationController {
             user.setLastName(lastNameField.getText());
             user.setFirstName(firstNameField.getText());
             user.setEmail(emailField.getText());
-
+            log.info("A regisztráció sikeres");
             //Users users_ = JAXBHelper.fromXML(Users.class, new FileInputStream("users.xml"));
             JAXBContext jaxbContext = JAXBContext.newInstance(Users.class);
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();

@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import lombok.extern.slf4j.Slf4j;
 import main.Main;
 import modell.Account;
 import modell.Accounts;
@@ -22,6 +23,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+@Slf4j
 public class BefizetesController {
     private User user = new User();
     public void initUser(User user){
@@ -35,6 +37,7 @@ public class BefizetesController {
     private TextField ammount;
     public void befizetes(ActionEvent actionEvent) throws JAXBException, IOException {
         if(ammount.getText().isEmpty()){
+            log.error("Üres befizetés mező!");
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Hiba");
             alert.setHeaderText(null);
@@ -43,6 +46,7 @@ public class BefizetesController {
         }else{
             int ammount_ = Integer.parseInt(ammount.getText());
             befizetes_(ammount_, user.getAccountNumber());
+            log.info("Sikeres befizetés a számlára!");
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Fxml/userloggedin.fxml"));
             Parent root = fxmlLoader.load();

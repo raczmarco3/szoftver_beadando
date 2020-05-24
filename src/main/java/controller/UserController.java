@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import lombok.extern.slf4j.Slf4j;
 import main.Main;
 import modell.User;
 import modell.Users;
@@ -21,12 +22,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
+@Slf4j
 public class UserController {
     @FXML
     private javafx.scene.control.Button closeButton;
     @FXML
     private javafx.scene.control.Button registrationButton;
     public void back_to_main(ActionEvent actionEvent) throws IOException {
+        log.info("Vissza a menübe!");
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
         Stage primaryStage = new Stage();
@@ -38,6 +41,7 @@ public class UserController {
     }
 
     public void registration(ActionEvent actionEvent) throws IOException {
+        log.info("Regisztráció kiválasztva!");
         Stage stage = (Stage) registrationButton.getScene().getWindow();
         stage.close();
         Stage primaryStage = new Stage();
@@ -53,6 +57,7 @@ public class UserController {
     private TextField pwInput;
     public void bejelentkezes(ActionEvent actionEvent) throws IOException, JAXBException {
         if (emailInput.getText().isEmpty() || pwInput.getText().isEmpty()) {
+            log.error("A bejelentkezési adatok üresek");
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Hiba");
             alert.setHeaderText(null);
@@ -76,7 +81,7 @@ public class UserController {
                         */
                     /*UserLoggedInController InitData = new UserLoggedInController();
                     InitData.setLoggedin(user);*/
-
+                    log.info("A bejelentkezés sikeres");
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Fxml/userloggedin.fxml"));
                     Parent root = fxmlLoader.load();
                     fxmlLoader.<UserLoggedInController>getController().setLoggedin(user);

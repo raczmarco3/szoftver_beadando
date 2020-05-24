@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import lombok.extern.slf4j.Slf4j;
 import modell.Account;
 import modell.Accounts;
 import modell.User;
@@ -20,6 +21,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+@Slf4j
 public class BalanceController {
     private User user = new User();
     public void initUser(User user){
@@ -32,6 +34,7 @@ public class BalanceController {
         balanceammount.setText(getBalance());
     }
     private String getBalance() throws JAXBException {
+        log.info("Valaki lekérdezte az egyenlegét");
         JAXBContext jaxbContext = JAXBContext.newInstance(Accounts.class);
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
         Accounts Accounts = (Accounts) unmarshaller.unmarshal(new File("accounts.xml"));
