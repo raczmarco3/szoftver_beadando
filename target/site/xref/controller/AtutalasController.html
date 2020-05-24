@@ -69,7 +69,7 @@
 <a class="jxr_linenumber" name="L61" href="#L61">61</a>          }
 <a class="jxr_linenumber" name="L62" href="#L62">62</a>      }
 <a class="jxr_linenumber" name="L63" href="#L63">63</a>  
-<a class="jxr_linenumber" name="L64" href="#L64">64</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> atutalas_(String ownerAccountNumber, String accountNumber, <strong class="jxr_keyword">int</strong> ammount) <strong class="jxr_keyword">throws</strong> JAXBException {
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> atutalas_(String ownerAccountNumber, String accountNumber, <strong class="jxr_keyword">int</strong> ammount) <strong class="jxr_keyword">throws</strong> JAXBException {
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>          JAXBContext jaxbContext = JAXBContext.newInstance(Accounts.<strong class="jxr_keyword">class</strong>);
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>          Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>          <a name="<a name="Acc<a name="Accounts" href="../modell/Accounts.html#Accounts">Accounts</a>ref="../modell/Accounts.html#Accounts">Accounts</a>" href="../modell/Accounts.html#Accounts">Accounts</a> <a name="Acc<a name="Accounts" href="../modell/Accounts.html#Accounts">Accounts</a>ref="../modell/Accounts.html#Accounts">Accounts</a> = (<a name="Accounts" href="../modell/Accounts.html#Accounts">Accounts</a>) unmarshaller.unmarshal(<strong class="jxr_keyword">new</strong> File(<span class="jxr_string">"accounts.xml"</span>));

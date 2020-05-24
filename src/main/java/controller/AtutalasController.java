@@ -61,7 +61,7 @@ public class AtutalasController {
         }
     }
 
-    private boolean atutalas_(String ownerAccountNumber, String accountNumber, int ammount) throws JAXBException {
+    public boolean atutalas_(String ownerAccountNumber, String accountNumber, int ammount) throws JAXBException {
         JAXBContext jaxbContext = JAXBContext.newInstance(Accounts.class);
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
         Accounts Accounts = (Accounts) unmarshaller.unmarshal(new File("accounts.xml"));
