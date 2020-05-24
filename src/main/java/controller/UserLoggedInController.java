@@ -46,18 +46,22 @@ public class UserLoggedInController {
         stage2.show();
     }
 
-    public void atutalas(ActionEvent actionEvent) {
+    public void atutalas(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Fxml/atutalas.fxml"));
+        Parent root = fxmlLoader.load();
+        fxmlLoader.<AtutalasController>getController().initUser(user);
+        Stage stage2 = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage2.setScene(new Scene(root));
+        stage2.show();
     }
 
-    public void szamlatortenet(ActionEvent actionEvent) {
+    public void uzenetek(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Fxml/usermsgs.fxml"));
+        Parent root = fxmlLoader.load();
+        fxmlLoader.<UserMessageController>getController().initUser(user);
+        Stage stage2 = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage2.setScene(new Scene(root));
+        stage2.show();
     }
 
-    public void fuggotetelek(ActionEvent actionEvent) {
-    }
-
-    public void uzenetek(ActionEvent actionEvent) {
-    }
-
-    public void sikertelen(ActionEvent actionEvent) {
-    }
 }

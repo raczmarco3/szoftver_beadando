@@ -5,6 +5,7 @@ modell\Account.class
 controller\UserController.class
 modell\Accounts.class
 main\BankApplication.class
+controller\UserMessageController.class
 controller\MainController.class
 controller\UserLoggedInController.class
 controller\BalanceController.class
@@ -13,5 +14,6 @@ controller\RegistrationController.class
 modell\Workers.class
 controller\BefizetesController.class
 controller\WorkerLoggedInController.class
+controller\AtutalasController.class
 jaxb\JAXBHelper.class
 modell\Users.class
