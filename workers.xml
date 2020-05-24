@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<workers>
+    <worker>
+        <WorkerId>0</WorkerId>
+        <FirstName>Teszt</FirstName>
+        <LastName>Munkas</LastName>
+        <Birth>1995-11-19</Birth>
+        <Password>123456</Password>
+        <Email>teszt.munkas@gmail.com</Email>
+    </worker>
+</workers>

@@ -1,7 +1,10 @@
 controller\WorkerController.class
 modell\Worker.class
+controller\LocalDateAdapter.class
 modell\Account.class
 controller\UserController.class
 main\BankApplication.class
 controller\MainController.class
+jaxb\JAXBHelper.class
+modell\Users.class
 controller\RegistrationController.class

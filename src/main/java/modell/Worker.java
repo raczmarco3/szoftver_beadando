@@ -13,6 +13,7 @@ public class Worker {
     private String LastName;
     @Setter(AccessLevel.NONE)
     private LocalDate Birth;
+    private String Email;
     private String Password;
 
     public Worker(int birthYear, int birthMonth, int birthDay){

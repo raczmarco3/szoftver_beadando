@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<users>
+    <user>
+        <UserId>0</UserId>
+        <FirstName>Teszt</FirstName>
+        <LastName>User</LastName>
+        <Birth>1995-11-19</Birth>
+        <Password>123456</Password>
+        <Email>teszt.user@gmail.com</Email>
+        <AccountNumber>ser-100</AccountNumber>
+    </user>
+    <user>
+        <UserId>1</UserId>
+        <FirstName>sad</FirstName>
+        <LastName>asd</LastName>
+        <Birth>1992-10-14</Birth>
+        <Password>asd</Password>
+        <Email>sad</Email>
+        <AccountNumber>ser-776</AccountNumber>
+    </user>
+    <user>
+        <UserId>2</UserId>
+        <FirstName>Lakatos</FirstName>
+        <LastName>Kolompár</LastName>
+        <Birth>1989-04-30</Birth>
+        <Password>12345678</Password>
+        <Email>lakatos@sziget.hu</Email>
+        <AccountNumber>ser-632</AccountNumber>
+    </user>
+</users>

@@ -10,8 +10,17 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import main.Main;
 import modell.User;
+import jaxb.JAXBHelper;
+import modell.Users;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.List;
 
 public class RegistrationController {
     @FXML
@@ -42,7 +51,7 @@ public class RegistrationController {
     private TextField passwordField;
     @FXML
     private javafx.scene.control.Button registrationButton;
-    public void registration(ActionEvent actionEvent) throws IOException {
+    public void registration(ActionEvent actionEvent) throws IOException, JAXBException {
         if(birthDateField.getText().isEmpty() || birthMonthField.getText().isEmpty() ||
                 firstNameField.getText().isEmpty() || lastNameField.getText().isEmpty() ||
                 birthDayField.getText().isEmpty() || emailField.getText().isEmpty() ||
@@ -77,8 +86,25 @@ public class RegistrationController {
             int birthMonthField_ = Integer.parseInt(birthMonthField.getText());
             int birthDayField_ = Integer.parseInt(birthDayField.getText());
             User user = new User(birthDateField_, birthMonthField_, birthDayField_);
-            
-            System.out.println(user.getBirth());
+            user.setPassword(passwordField.getText());
+            user.setLastName(lastNameField.getText());
+            user.setFirstName(firstNameField.getText());
+            user.setEmail(emailField.getText());
+
+            Users users_ = JAXBHelper.fromXML(Users.class, new FileInputStream("users.xml"));
+            JAXBContext jaxbContext = JAXBContext.newInstance(Users.class);
+            Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+            Users users = (Users) unmarshaller.unmarshal(new File("users.xml"));
+
+            List<User> userList = users.getUsers();
+            user.setUserId(users.newUserId(userList));
+            user.setAccountNumber(users.generateAccountNumber());
+            userList.add(user);
+            users.setUsers(userList);
+            Marshaller marshaller = jaxbContext.createMarshaller();
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+            marshaller.marshal(users, new File("users.xml"));
+
 
             Stage stage = (Stage) closeButton.getScene().getWindow();
             stage.close();
