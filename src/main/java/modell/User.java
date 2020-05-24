@@ -9,6 +9,9 @@ import java.time.LocalDate;
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+/**
+ * Class represents a User
+ */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @Data
@@ -24,6 +27,12 @@ public class User {
     private String AccountNumber;
     private Boolean ApprovedRegistration = false;
 
+    /**
+     * @param birthYear year of birth
+     * @param birthMonth month of birth
+     * @param birthDay day of birth
+     *  the constructor sets the birth
+     */
     public User(int birthYear, int birthMonth, int birthDay){
         this.Birth = LocalDate.of(birthYear, birthMonth, birthDay);
     }

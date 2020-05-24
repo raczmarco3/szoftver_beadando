@@ -7,11 +7,18 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Class represents the list of users
+ */
 @XmlRootElement(name = "users")
 public class Users {
 
     private List<User> Users;
 
+    /**
+     *
+     * @return the list of users
+     */
     public List<User> getUsers() {
         return Users;
     }
@@ -21,6 +28,10 @@ public class Users {
         this.Users = Users;
     }
 
+    /**
+     * @param Users gets every user
+     * @return returns an unused index
+     */
     public int newUserId(List<User> Users){
         int id=0;
         for (User user : Users)

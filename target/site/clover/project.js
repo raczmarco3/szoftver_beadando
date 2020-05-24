@@ -1,0 +1,2 @@
+processClover (  {"children":["jaxb/","controller/","modell/","main/"],"name":"Clover database Sun May 24 2020 18:31:36 CEST","stats":{"AvgMethodComplexity":1.7377049,"Complexity":106,"ErroneousTests":0,"FailingTests":0,"FilteredElements":0,"PassingTests":0,"PcErroneousTests":-1,"PcFailingTests":-1,"PcPassingTests":-1,"TestExecutionTime":0,"Tests":0,"TotalChildren":4,"TotalPercentageCovered":0,"TotalStatements":447,"UncoveredElements":560},"title":"bank 1.0"}
+ ); 

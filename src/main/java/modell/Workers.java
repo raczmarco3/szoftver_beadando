@@ -4,6 +4,9 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
+/**
+ * class represents the list of workers
+ */
 @XmlRootElement(name = "workers")
     public class Workers {
 
