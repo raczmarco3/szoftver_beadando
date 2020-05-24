@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserLoggedInController">
+   <children>
+      <Label layoutX="249.0" layoutY="14.0" text="Üdv újra itt!">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="penzBefizetesButton" layoutX="133.0" layoutY="72.0" mnemonicParsing="false" onAction="#penzbefizetes" prefHeight="55.0" prefWidth="122.0" text="Pénz Befizetés" />
+      <Button fx:id="penzKivetelButton" layoutX="344.0" layoutY="72.0" mnemonicParsing="false" onAction="#penzkivetel" prefHeight="55.0" prefWidth="122.0" text="Pénz Kivétel" />
+      <Button fx:id="egyenlegButton" layoutX="133.0" layoutY="146.0" mnemonicParsing="false" onAction="#egyenleg" prefHeight="55.0" prefWidth="122.0" text="Egyenleg" />
+      <Button fx:id="atutalasButton" layoutX="344.0" layoutY="146.0" mnemonicParsing="false" onAction="#atutalas" prefHeight="55.0" prefWidth="122.0" text="Átutalás" />
+      <Button fx:id="szamlatortenetButton" layoutX="133.0" layoutY="219.0" mnemonicParsing="false" onAction="#szamlatortenet" prefHeight="55.0" prefWidth="122.0" text="Számlatörténet" />
+      <Button fx:id="fuggoTetelekButton" layoutX="344.0" layoutY="219.0" mnemonicParsing="false" onAction="#fuggotetelek" prefHeight="55.0" prefWidth="122.0" text="Függő Tételek" />
+      <Button fx:id="uzenetekButton" layoutX="344.0" layoutY="291.0" mnemonicParsing="false" onAction="#uzenetek" prefHeight="55.0" prefWidth="122.0" text="Üzenetek" />
+      <Button fx:id="sikertelenButton" layoutX="133.0" layoutY="291.0" mnemonicParsing="false" onAction="#sikertelen" prefHeight="55.0" prefWidth="122.0" text="Sikertelen Tranzakciók">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>

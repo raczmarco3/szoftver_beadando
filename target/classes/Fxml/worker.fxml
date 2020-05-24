@@ -12,9 +12,9 @@
          <font>
             <Font size="18.0" />
          </font></Label>
-      <TextField layoutX="109.0" layoutY="188.0" />
-      <TextField layoutX="350.0" layoutY="188.0" />
-      <Label layoutX="109.0" layoutY="168.0" prefHeight="20.0" prefWidth="112.0" text="Felhasználónév:">
+      <TextField fx:id="emailField" layoutX="109.0" layoutY="188.0" />
+      <TextField fx:id="jelszoField" layoutX="350.0" layoutY="188.0" />
+      <Label layoutX="109.0" layoutY="168.0" prefHeight="20.0" prefWidth="112.0" text="Email:">
          <font>
             <Font size="14.0" />
          </font>
@@ -29,6 +29,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button layoutX="473.0" layoutY="329.0" mnemonicParsing="false" fx:id="closeButton" onAction="#back_to_main" prefHeight="49.0" prefWidth="89.0" text="Vissza" />
+      <Button fx:id="closeButton" layoutX="473.0" layoutY="329.0" mnemonicParsing="false" onAction="#back_to_main" prefHeight="49.0" prefWidth="89.0" text="Vissza" />
+      <Button fx:id="bejelentkezesButton" layoutX="253.0" layoutY="244.0" mnemonicParsing="false" onAction="#bejelentkezes" prefHeight="58.0" prefWidth="95.0" text="Bejelentkezés" />
    </children>
 </Pane>

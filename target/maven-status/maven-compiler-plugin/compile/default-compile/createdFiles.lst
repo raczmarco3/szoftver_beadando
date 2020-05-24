@@ -3,8 +3,15 @@ modell\Worker.class
 controller\LocalDateAdapter.class
 modell\Account.class
 controller\UserController.class
+modell\Accounts.class
 main\BankApplication.class
 controller\MainController.class
+controller\UserLoggedInController.class
+controller\BalanceController.class
+controller\KivetelController.class
+controller\RegistrationController.class
+modell\Workers.class
+controller\BefizetesController.class
+controller\WorkerLoggedInController.class
 jaxb\JAXBHelper.class
 modell\Users.class
-controller\RegistrationController.class

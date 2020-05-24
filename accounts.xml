@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<accounts>
+    <account>
+        <AccountNumber>ser-100</AccountNumber>
+        <AccountBalance>53</AccountBalance>
+    </account>
+    <account>
+        <AccountNumber>ser-980</AccountNumber>
+        <AccountBalance>100</AccountBalance>
+    </account>
+</accounts>

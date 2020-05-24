@@ -22,6 +22,7 @@ public class User {
     private String Password;
     private String Email;
     private String AccountNumber;
+    private Boolean ApprovedRegistration = false;
 
     public User(int birthYear, int birthMonth, int birthDay){
         this.Birth = LocalDate.of(birthYear, birthMonth, birthDay);

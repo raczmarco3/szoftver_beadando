@@ -9,6 +9,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import main.Main;
+import modell.Account;
+import modell.Accounts;
 import modell.User;
 import jaxb.JAXBHelper;
 import modell.Users;
@@ -91,19 +93,35 @@ public class RegistrationController {
             user.setFirstName(firstNameField.getText());
             user.setEmail(emailField.getText());
 
-            Users users_ = JAXBHelper.fromXML(Users.class, new FileInputStream("users.xml"));
+            //Users users_ = JAXBHelper.fromXML(Users.class, new FileInputStream("users.xml"));
             JAXBContext jaxbContext = JAXBContext.newInstance(Users.class);
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
             Users users = (Users) unmarshaller.unmarshal(new File("users.xml"));
 
+            JAXBContext jaxbContext2 = JAXBContext.newInstance(Accounts.class);
+            Unmarshaller unmarshaller2 = jaxbContext2.createUnmarshaller();
+            Accounts Accounts = (Accounts) unmarshaller2.unmarshal(new File("accounts.xml"));
+
+            List<Account> accountList = Accounts.getAccounts();
             List<User> userList = users.getUsers();
+
             user.setUserId(users.newUserId(userList));
             user.setAccountNumber(users.generateAccountNumber());
             userList.add(user);
             users.setUsers(userList);
+            Account newAccount = new Account();
+            newAccount.setAccountBalance(0);
+            newAccount.setAccountNumber(user.getAccountNumber());
+            accountList.add(newAccount);
+            Accounts.setAccounts(accountList);
+
             Marshaller marshaller = jaxbContext.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
             marshaller.marshal(users, new File("users.xml"));
+
+            Marshaller marshaller2 = jaxbContext2.createMarshaller();
+            marshaller2.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+            marshaller2.marshal(Accounts, new File("accounts.xml"));
 
 
             Stage stage = (Stage) closeButton.getScene().getWindow();
